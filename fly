@@ -1,0 +1,26 @@
+local player = game.Players.LocalPlayer
+local Flyanimation = Instance.new('Animation', game.Workspace)
+Flyanimation.AnimationId = 'rbxassetid://3541044388'
+local Idleanimation = Instance.new('Animation', game.Workspace)
+Idleanimation.AnimationId = 'rbxassetid://3541114300'
+local HeroIdle = player.Character.Humanoid:LoadAnimation(Idleanimation)
+local HeroFly = player.Character.Humanoid:LoadAnimation(Flyanimation)
+Idleing2 = false
+            local function flyanim()
+                    --HeroIdle:Stop()
+                    local FlyingA = false
+                    for i,v in pairs(player.Character.Humanoid:GetPlayingAnimationTracks()) do
+                        if v.Animation.AnimationId == 'rbxassetid://3541044388' then
+                            FlyingA = true
+                        end
+                        if v.Animation.AnimationId == 'rbxassetid://2788289281' then
+                            v:Stop()
+                        end
+                        if v.Animation.AnimationId == 'rbxassetid://2788292075' then
+                            v:Stop()
+                        end
+                    end
+                    if FlyingA == false and Idleing2 == false then
+                        HeroFly:Play()
+                    end
+                end
